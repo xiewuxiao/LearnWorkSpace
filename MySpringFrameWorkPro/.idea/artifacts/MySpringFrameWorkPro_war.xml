@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="MySpringFrameWorkPro:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="MyFrameworkTest-2017.11.16.war">
-      <element id="artifact" artifact-name="MySpringFrameWorkPro:war exploded" />
-    </root>
-  </artifact>
-</component>
