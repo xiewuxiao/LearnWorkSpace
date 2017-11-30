@@ -35,7 +35,9 @@ public class TestController {
      */
     @RequestMapping("/database")
     public String testDatabase(Model model) {
+        logger.info("为什么不能把错给拿进来呢，啊随叫随到随叫随到");
         StringBuilder builder = new StringBuilder();
+        logger.info("为什么不能把错给拿进来呢");
         List<Book> list = bookDAO.getAllBooks();
         for (Book book :
                 list) {
@@ -44,6 +46,7 @@ public class TestController {
         if (StringUtils.isEmpty(builder.toString())) {
             model.addAttribute("result", "请先往数据库添加测试数据------");
         }
+
         model.addAttribute("result", builder.toString());
         return "/testDatabase";
     }

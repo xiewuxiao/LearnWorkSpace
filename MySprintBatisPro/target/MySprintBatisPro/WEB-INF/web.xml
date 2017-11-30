@@ -9,7 +9,6 @@
     </welcome-file-list>
 
 
-
     <!--siteMesh 控制器 -->
     <filter>
         <filter-name>sitemesh</filter-name>
@@ -40,10 +39,6 @@
     <context-param>
         <param-name>spring.liveBeansView.mbeanDomain</param-name>
         <param-value>dev</param-value>
-    </context-param>
-    <context-param>
-        <param-name>log4jExposeWebAppRoot</param-name>
-        <param-value>false</param-value>
     </context-param>
 
     <filter>
