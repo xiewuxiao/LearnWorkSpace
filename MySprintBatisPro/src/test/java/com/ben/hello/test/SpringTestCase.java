@@ -1,5 +1,6 @@
 package com.ben.hello.test;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
@@ -12,5 +13,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/*.xml"})
 public class SpringTestCase extends AbstractTransactionalJUnit4SpringContextTests {
-
+    @Test
+    public void test(){
+        System.out.println(System.getProperty("file.encoding"));
+    }
 }

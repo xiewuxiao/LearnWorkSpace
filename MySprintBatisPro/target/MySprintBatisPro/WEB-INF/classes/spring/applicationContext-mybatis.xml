@@ -13,11 +13,11 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
         <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations">
-            <list>
-                <value>classpath:mapper/*Mapper.xml</value>
-            </list>
-        </property>
+        <!--<property name="mapperLocations">-->
+            <!--<list>-->
+                <!--<value>classpath:mapper/*Mapper.xml</value>-->
+            <!--</list>-->
+        <!--</property>-->
     </bean>
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory"/>

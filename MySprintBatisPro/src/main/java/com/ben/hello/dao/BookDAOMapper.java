@@ -1,6 +1,7 @@
 package com.ben.hello.dao;
 
 import com.ben.hello.po.Book;
+import org.apache.ibatis.annotations.Flush;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -10,10 +11,12 @@ import java.util.List;
  * Created by xiewuxiao@163.com on 2017-11-30 15:47:16.
  * 图书数据访问接口
  */
-public interface BookDAO {
+
+public interface BookDAOMapper {
     /**
      * 获得所有图书
      */
+    @Flush
     public List<Book> getAllBooks();
 
     /**

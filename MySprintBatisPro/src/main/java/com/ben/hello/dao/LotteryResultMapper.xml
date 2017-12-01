@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ben.hello.dao.LotteryResultMapper">
+
+    <select id="bulkInsertLotteryResult" parameterType="java.util.List">
+        insert into t_lottery_result(periods,open_date,num1,num2,num3,num4,num5,num6,animal1,animal2,animal3,animal4,animal5,animal6,code,code_animal,code_s_or_d,code_b_or_l,sum_s_or_d,sum_b_or_l)
+        values
+        <foreach collection="list" item="item" index="index" separator="," >
+            (#{item.periods},#{item.open_Date},#{item.num1},#{item.num2},#{item.num3},#{item.num4},#{item.num5},#{item.num6},#{item.animal1},#{item.animal2},#{item.animal3},#{item.animal4},#{item.animal5},
+            #{item.animal6},#{item.code},#{item.code_animal},#{item.code_s_or_d},#{item.code_b_or_l},#{item.sum_s_or_d},#{item.sum_b_or_l})
+        </foreach>
+    </select>
+
+    <select id="getAllLotteryResult" resultType="LotteryResult">
+        SELECT  *  from t_lottery_result limit 100
+    </select>
+
+</mapper>
