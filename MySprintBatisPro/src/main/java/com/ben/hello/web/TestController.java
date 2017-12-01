@@ -44,7 +44,7 @@ public class TestController {
         try {
             StringBuilder builder = new StringBuilder();
 //            List<Book> list = bookDAOMapper.getAllBooks();
-            List<LotteryResult> list = lotteryResultMapper.getAllLotteryResult();
+            List<LotteryResult> list = lotteryResultMapper.getAllLotteryResult("2003/10/09");
             for (LotteryResult lotteryResult :
                     list) {
                 builder.append(lotteryResult.toString()).append("\n");
@@ -55,6 +55,7 @@ public class TestController {
 
             model.addAttribute("result", builder.toString());
             model.addAttribute("title", "数据库");
+            model.addAttribute("license", "© 2014 AllMobilize, Inc. Licensed under MIT license.");
         }catch (Exception e){
             e.printStackTrace();
 //            logger.error(e.getMessage(),e);

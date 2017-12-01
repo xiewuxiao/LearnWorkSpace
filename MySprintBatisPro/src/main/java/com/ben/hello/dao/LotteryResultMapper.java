@@ -2,6 +2,7 @@ package com.ben.hello.dao;
 
 
 import com.ben.hello.po.LotteryResult;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -10,5 +11,6 @@ import java.util.List;
  */
 public interface LotteryResultMapper {
     void bulkInsertLotteryResult(List<LotteryResult> list);
-    List<LotteryResult> getAllLotteryResult();
+    @Select("SELECT  *  from t_lottery_result")
+    List<LotteryResult> getAllLotteryResult(String opendate);
 }

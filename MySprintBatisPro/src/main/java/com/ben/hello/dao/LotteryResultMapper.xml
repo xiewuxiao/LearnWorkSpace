@@ -13,8 +13,4 @@
         </foreach>
     </select>
 
-    <select id="getAllLotteryResult" resultType="LotteryResult">
-        SELECT  *  from t_lottery_result limit 100
-    </select>
-
 </mapper>
