@@ -5,7 +5,7 @@ import com.ben.hello.dao.LotteryResultMapper;
 import com.ben.hello.po.Book;
 import com.ben.hello.po.LotteryResult;
 import com.ben.hello.service.CacheService;
-import com.sun.deploy.net.HttpResponse;
+import com.ben.hello.setup.Page;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -42,15 +44,10 @@ public class TestController {
     @RequestMapping(value = "/database")
     public String testDatabase(Model model) {
         try {
-//            List<Book> list = bookDAOMapper.getAllBooks();
-            List<LotteryResult> list = lotteryResultMapper.getAllLotteryResult("2003/10/09");
-//            for (LotteryResult lotteryResult :
-//                    list) {
-//                builder.append(lotteryResult.toString()).append("\n");
-//            }
-//            if (StringUtils.isEmpty(builder.toString())) {
-//                model.addAttribute("result", "请先往数据库添加测试数据------");
-//            }
+            Map<String,Object> param = new HashMap<>();
+            Page page = new Page();
+            param.put("page",page);
+            List<LotteryResult> list = lotteryResultMapper.getAllLotteryResultByPaging(param);
             model.addAttribute("list",list);
             model.addAttribute("title", "数据库");
             model.addAttribute("license", "© 2014 AllMobilize, Inc. Licensed under MIT license.");

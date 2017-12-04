@@ -11,7 +11,7 @@
         <!-- <setting name="logImpl" value="STDOUT_LOGGING" /> -->
         <setting name="logImpl" value="LOG4J2" />
         <setting name="callSettersOnNulls" value="true"/>
-        <setting name="defaultStatementTimeout" value="30"/>
+        <setting name="defaultStatementTimeout" value="1800"/>
         <!-- 查询时，关闭关联对象即时加载以提高性能 -->
         <setting name="lazyLoadingEnabled" value="true" />
         <!-- 设置关联对象加载的形态，此处为按需加载字段(加载字段由SQL指 定)，不会加载关联表的所有字段，以提高性能 -->
@@ -22,4 +22,11 @@
         <package name="com.ben.hello.po"></package>
     </typeAliases>
     <!--分页拦截器-->
+    <plugins>
+        <plugin interceptor="com.ben.hello.setup.PageHelper">
+            <!--匹配任意以Paging结尾的进行分页-->
+            <property name="sqlRegEx" value=".+Paging$"/>
+        </plugin>
+        <plugin interceptor="com.ben.hello.setup.MybatisPasteTimeInterceptor"/>
+    </plugins>
 </configuration>
