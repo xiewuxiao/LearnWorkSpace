@@ -51,6 +51,7 @@ public class TestController {
             model.addAttribute("list",list);
             model.addAttribute("title", "数据库");
             model.addAttribute("license", "© 2014 AllMobilize, Inc. Licensed under MIT license.");
+            model.addAttribute("page",page);
         }catch (Exception e){
             e.printStackTrace();
 //            logger.error(e.getMessage(),e);
