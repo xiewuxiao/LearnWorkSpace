@@ -45,7 +45,6 @@ public class RedisCache implements Cache {
     @Override
     public ValueWrapper get(Object key) {
 // TODO Auto-generated method stub
-        System.out.println("get key");
         final String keyf = key.toString();
         Object object = null;
         object = redisTemplate.execute(new RedisCallback<Object>() {
@@ -65,7 +64,6 @@ public class RedisCache implements Cache {
     @Override
     public void put(Object key, Object value) {
         // TODO Auto-generated method stub
-        System.out.println("put key");
         final String keyf = key.toString();
         final Object valuef = value;
         final long liveTime = 86400;
@@ -118,7 +116,6 @@ public class RedisCache implements Cache {
     @Override
     public void evict(Object key) {
         // TODO Auto-generated method stub
-        System.out.println("del key");
         final String keyf = key.toString();
         redisTemplate.execute(new RedisCallback<Long>() {
             public Long doInRedis(RedisConnection connection)

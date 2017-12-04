@@ -42,18 +42,16 @@ public class TestController {
     @RequestMapping(value = "/database")
     public String testDatabase(Model model) {
         try {
-            StringBuilder builder = new StringBuilder();
 //            List<Book> list = bookDAOMapper.getAllBooks();
             List<LotteryResult> list = lotteryResultMapper.getAllLotteryResult("2003/10/09");
-            for (LotteryResult lotteryResult :
-                    list) {
-                builder.append(lotteryResult.toString()).append("\n");
-            }
-            if (StringUtils.isEmpty(builder.toString())) {
-                model.addAttribute("result", "请先往数据库添加测试数据------");
-            }
-
-            model.addAttribute("result", builder.toString());
+//            for (LotteryResult lotteryResult :
+//                    list) {
+//                builder.append(lotteryResult.toString()).append("\n");
+//            }
+//            if (StringUtils.isEmpty(builder.toString())) {
+//                model.addAttribute("result", "请先往数据库添加测试数据------");
+//            }
+            model.addAttribute("list",list);
             model.addAttribute("title", "数据库");
             model.addAttribute("license", "© 2014 AllMobilize, Inc. Licensed under MIT license.");
         }catch (Exception e){
@@ -85,7 +83,7 @@ public class TestController {
      */
     @RequestMapping(value = "/cache")
     public String testCache(Model model) {
-        String value = cacheService.testCache("cacheTest");
+        String value = cacheService.testCache("cacheTest");//缓存了一个key值为cacheTest的对象
         model.addAttribute("title", "缓存测试");
         model.addAttribute("license", "© 2014 AllMobilize, Inc. Licensed under MIT license.");
         return "/cacheTest";

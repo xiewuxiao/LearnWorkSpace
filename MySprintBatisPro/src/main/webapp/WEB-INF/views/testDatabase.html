@@ -11,7 +11,24 @@
             <h3 class="panel-title">${title}</h3>
         </div>
         <div class="panel-body">
-            ${result}
+            <table class="table table-striped table-bordered">
+                <th class="th">码1</th>
+                <th class="th">码2</th>
+                <th class="th">码3</th>
+                <th class="th">码4</th>
+                <th class="th">码5</th>
+                <th class="th">码6</th>
+                <#list list as book>
+                    <tr >
+                        <td class="active">${book.num1}&nbsp;</td>
+                        <td class="success">${book.num2}&nbsp;</td>
+                        <td class="warning">${book.num3}&nbsp;</td>
+                        <td class="danger">${book.num4}&nbsp;</td>
+                        <td class="info">${book.num5}&nbsp;</td>
+                        <td>${book.num6}&nbsp;</td>
+                    </tr>
+                </#list>
+            </table>
             <br>
             <footer class="admin-content-footer">
                 <hr>
