@@ -35,7 +35,8 @@
                 <hr>
                 <p class="am-padding-left">${license}</p>
             </footer>
-            <@cast.paging page=page />
+            <!--第二个page为java后台传过来的对象-->
+            <@cast.paging page=page pageurl="/test/database" />
         </div>
     </div>
 </div>

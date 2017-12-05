@@ -148,7 +148,8 @@ public class PageHelper implements Interceptor {
     private String getPageSql(Page<?> page, String sql) {
         StringBuffer sqlBuffer = new StringBuffer(sql);
         int offset = (page.getPageNum() - 1) * page.getPageSize();
-        sqlBuffer.append(" limit ").append(offset).append(",").append(page.getPageSize());
+        sqlBuffer.insert(0," select t.* from (");
+        sqlBuffer.append(") t limit ").append(offset).append(",").append(page.getPageSize());
         return sqlBuffer.toString();
     }
 
