@@ -1,8 +1,10 @@
 package com.ben.hello.web;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.ben.hello.dao.BookDAOMapper;
 import com.ben.hello.dao.LotteryResultMapper;
-import com.ben.hello.po.Book;
 import com.ben.hello.po.LotteryResult;
 import com.ben.hello.service.CacheService;
 import com.ben.hello.setup.Page;
@@ -11,12 +13,10 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -98,5 +98,17 @@ public class TestController {
         model.addAttribute("title", "这是不带有sitemesh的页面");
         model.addAttribute("license", "© 2014 AllMobilize, Inc. Licensed under MIT license.");
         return "/nositemesh";
+    }
+    @RequestMapping(value = "/nositemesh/mybody",produces = "application/json;charset=utf-8")
+    @ResponseBody()
+    public String getLotteryResultData() {
+        Map<String,Object> param = new HashMap<>();
+        Page page = new Page(1,200);
+        param.put("page",page);
+        List<LotteryResult> list = lotteryResultMapper.getAllLotteryResultByPaging(param);
+        String result = JSON.toJSONString(list);
+        System.out.println(result);
+        return result;
+
     }
 }
