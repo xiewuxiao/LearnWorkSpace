@@ -63,4 +63,14 @@
                       expression="execution(* com.ben.hello.dao.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCuts"/>
     </aop:config>
+    <!--<bean id="audience" class="com.ben.hello.aop.Audience"></bean>-->
+    <!--<aop:config>-->
+        <!--<aop:aspect ref="audience">-->
+            <!--<aop:pointcut id="testDatabase" expression="execution(* com.ben.hello.web.TestController.testDatabase(..))"></aop:pointcut>-->
+            <!--<aop:before method="takeSeates" pointcut-ref="testDatabase"></aop:before>-->
+            <!--<aop:before method="turnOffCellPhone" pointcut-ref="testDatabase"></aop:before>-->
+            <!--<aop:after-returning method="applaud" pointcut-ref="testDatabase" ></aop:after-returning>-->
+            <!--<aop:after-throwing method="demandRefund" pointcut-ref="testDatabase"></aop:after-throwing>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
 </beans>
