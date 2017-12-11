@@ -2,24 +2,50 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <#import "pageftl.ftl" as cast/>
     <title>${title}</title>
 </head>
 <body>
+<form name="theForm" action="/test/database" method="post">
+
+    <input type="hidden" id="open_date" name="open_date" value="2017/08/03">
+    <input type="hidden" id="pageNum" name="pageNum" >
+
 <div class="col-md-8">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">${title}</h3>
         </div>
         <div class="panel-body">
-            ${result}
+            <table class="table table-striped table-bordered">
+                <th class="th">码1</th>
+                <th class="th">码2</th>
+                <th class="th">码3</th>
+                <th class="th">码4</th>
+                <th class="th">码5</th>
+                <th class="th">码6</th>
+                <#list list as book>
+                    <tr >
+                        <td class="active">${book.num1}&nbsp;</td>
+                        <td class="success">${book.num2}&nbsp;</td>
+                        <td class="warning">${book.num3}&nbsp;</td>
+                        <td class="danger">${book.num4}&nbsp;</td>
+                        <td class="info">${book.num5}&nbsp;</td>
+                        <td>${book.num6}&nbsp;</td>
+                    </tr>
+                </#list>
+            </table>
+            <@cast.paging page=page pageurl="/test/database" />
             <br>
             <footer class="admin-content-footer">
                 <hr>
-                <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+                <p class="am-padding-left">${license}</p>
             </footer>
+            <!--第二个page为java后台传过来的对象-->
+
         </div>
     </div>
 </div>
-
+</form>
 </body>
 </html>
