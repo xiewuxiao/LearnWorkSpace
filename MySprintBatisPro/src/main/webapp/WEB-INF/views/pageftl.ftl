@@ -16,28 +16,44 @@
 <#--</nav>-->
 
     <ul class="pagination pagination">
-        <li><span>${page.pageNum}</span></li>
-        <li><a href="${pageurl}?pageNum=${page.pageNum-1}">上一页</a></li>
-        <#assign x=0>
-        <#list page.pageNum-5 .. page.pageNum+5 as y>
-            <#if (y<=0) >
-                <#--记录需要补的数量-->
-            <#assign x=x+1/>
-            <#else>
-                <li><a href="${pageurl}?pageNum=${y}">${y}</a></li>
-            </#if>
-        </#list>
-        <p>需要补的数量为${x}</p>
+        <li><a href="javascript:turnToPage(1)" class="pageTD">首页</a></li>
+        <li><a href="${pageurl}?pageNum=${(page.pageNum-1>0)?string((page.pageNum-1)+"","1")}">上一页</a></li>
+        <#--<#assign x=0>-->
+        <#--<#list page.pageNum-4 .. page.pageNum+4 as y>-->
+            <#--<#if (y<=0) >-->
+                <#--&lt;#&ndash;记录需要补的数量&ndash;&gt;-->
+            <#--<#assign x=x+1/>-->
+            <#--<#else>-->
+                <#--<li>-->
+                    <#--&lt;#&ndash;<a href="${pageurl}?pageNum=${y}" class="pageTD"&ndash;&gt;-->
+                    <#--<a href="javascript:turnToPage(${y});" class="pageTD"-->
+                    <#--<#if y==page.pageNum> style="border:0;"</#if>-->
 
-        <#if (x>0)>
-            <#--起始要+1，终止的要减1-->
-            <#list page.pageNum+5+1 .. page.pageNum+5-1+x as n>
-                <li><a href="${pageurl}?pageNum=${n}">${n}</a></li>
-            </#list>
-        </#if>
-
-        <li><a href="${pageurl}?pageNum=${page.pageNum+1}">下一页</a></li>
+                    <#-->${y}-->
+                    <#--</a></li>-->
+            <#--</#if>-->
+        <#--</#list>-->
+            <#--<#list 0 .. x as n>-->
+                <#--<#if (n>0)>-->
+                    <#--<li><a href="javascript:turnToPage(${page.pageNum+4+n});" class="pageTD"-->
+                    <#-->${page.pageNum+4+n}</a></li>-->
+                <#--</#if>-->
+            <#--</#list>-->
+        <li><a href="javascript:turnToPage(${(page.pageNum)})" class="pageTD">${(page.pageNum)}</a></li>
+        <li><a href="javascript:turnToPage(${(page.pageNum+1<page.totalPage)?string((page.pageNum+1)+"",page.totalPage+"")})" class="pageTD">下一页</a></li>
+        <li><a href="javascript:turnToPage(${page.totalPage?c})" class="pageTD">尾页</a></li>
+        <li>共有${page.totalPage}页</li>
     </ul><br>
-
+<style>
+.pageTD{
+    margin-left: 12px !important;
+}
+</style>
+<script type="application/javascript">
+    function turnToPage(pageNum){
+        $("#pageNum").val(pageNum)
+        document.theForm.submit();
+    }
+</script>
 
 </#macro>

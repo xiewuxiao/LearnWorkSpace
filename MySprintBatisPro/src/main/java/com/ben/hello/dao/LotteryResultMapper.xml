@@ -13,4 +13,16 @@
         </foreach>
     </select>
 
+    <select id="getAllLotteryResultByPaging" resultType="LotteryResult" parameterType="java.util.Map">
+        SELECT  *  from t_lottery_result
+        <where>
+            <if test="open_date_s != null">
+                <![CDATA[open_date >= #{open_date_s}]]>
+            </if>
+            <if test="open_date_e != null">
+                <![CDATA[ and open_date >= #{open_date_e}]]>
+            </if>
+        </where>
+    </select>
+
 </mapper>

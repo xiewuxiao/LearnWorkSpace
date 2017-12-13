@@ -34,8 +34,6 @@ public class TestController {
     CacheService cacheService;
 
     @Autowired
-    BookDAOMapper bookDAOMapper;
-    @Autowired
     LotteryResultMapper lotteryResultMapper;
 
     /**
@@ -65,7 +63,7 @@ public class TestController {
     }
 
     /**
-     * 测试页面跳转是否正常
+     * 测试页面跳转是 否正常
      *
      * @param model
      * @return
@@ -87,6 +85,7 @@ public class TestController {
     @RequestMapping(value = "/cache")
     public String testCache(Model model) {
         String value = cacheService.testCache("cacheTest");//缓存了一个key值为cacheTest的对象
+        model.addAttribute("cache",value);
         model.addAttribute("title", "缓存测试");
         model.addAttribute("license", "© 2014 AllMobilize, Inc. Licensed under MIT license.");
         return "/cacheTest";
@@ -109,6 +108,6 @@ public class TestController {
         String result = JSON.toJSONString(list);
         System.out.println(result);
         return result;
-
     }
+
 }

@@ -12,6 +12,5 @@ import java.util.Map;
  */
 public interface LotteryResultMapper {
     void bulkInsertLotteryResult(List<LotteryResult> list);
-    @Select("SELECT  *  from t_lottery_result")
     List<LotteryResult> getAllLotteryResultByPaging(Map<String,Object> param);
 }
