@@ -8,8 +8,9 @@ import java.util.List;
 
 /**
  * Created by hasee on 2017/12/13.
+ * @author ben
  */
-public class WSClientTest {
+public class WsClientTest {
     public static void main(String[] args) {
         ExternalWebService externalWebService = new ExternalWebService_Service().getExternalWebServicePort();
         List<LotteryResult> list = externalWebService.getLotteryResultList(null,"2003/12/30");

@@ -11,7 +11,10 @@ import java.io.*;
 import java.util.concurrent.Callable;
 
 /**
- * Created by xiewuxiao@163.com on 2017-11-30 15:47:16.
+ * redis缓存对象
+ * @author ben
+ * @date 2017/12/9
+ * Created by hasee on 2017/12/4.
  */
 public class RedisCache implements Cache {
 
@@ -48,6 +51,7 @@ public class RedisCache implements Cache {
         final String keyf = key.toString();
         Object object = null;
         object = redisTemplate.execute(new RedisCallback<Object>() {
+            @Override
             public Object doInRedis(RedisConnection connection)
                     throws DataAccessException {
                 byte[] key = keyf.getBytes();
@@ -68,6 +72,7 @@ public class RedisCache implements Cache {
         final Object valuef = value;
         final long liveTime = 86400;
         redisTemplate.execute(new RedisCallback<Long>() {
+            @Override
             public Long doInRedis(RedisConnection connection)
                     throws DataAccessException {
                 byte[] keyb = keyf.getBytes();
@@ -118,6 +123,7 @@ public class RedisCache implements Cache {
         // TODO Auto-generated method stub
         final String keyf = key.toString();
         redisTemplate.execute(new RedisCallback<Long>() {
+            @Override
             public Long doInRedis(RedisConnection connection)
                     throws DataAccessException {
                 return connection.del(keyf.getBytes());
@@ -130,6 +136,7 @@ public class RedisCache implements Cache {
         // TODO Auto-generated method stub
         System.out.println("clear key");
         redisTemplate.execute(new RedisCallback<String>() {
+            @Override
             public String doInRedis(RedisConnection connection)
                     throws DataAccessException {
                 connection.flushDb();

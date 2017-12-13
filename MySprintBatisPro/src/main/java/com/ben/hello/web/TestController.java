@@ -23,7 +23,10 @@ import java.util.Map;
 
 
 /**
- * Created by xiewuxiao@163.com on 2017-11-30 15:47:16.
+ * 简单的控制层对象
+ * @author ben
+ * @date 2017/12/9
+ * Created by hasee on 2017/12/4.
  */
 @Controller
 @RequestMapping("/test")
@@ -45,10 +48,12 @@ public class TestController {
     public String testDatabase(Model model, HttpServletRequest request) {
         try {
 
-            Map<String,Object> param = new HashMap<>();
+            Map<String,Object> param = new HashMap<>(10);
             Page page = new Page();
             String pageNum = request.getParameter("pageNum");
-            if(pageNum!=null) page.setPageNum(Integer.valueOf(pageNum));
+            if(pageNum!=null){
+                page.setPageNum(Integer.valueOf(pageNum));
+            }
             param.put("page",page);
             List<LotteryResult> list = lotteryResultMapper.getAllLotteryResultByPaging(param);
             model.addAttribute("list",list);
@@ -57,7 +62,6 @@ public class TestController {
             model.addAttribute("page",page);
         }catch (Exception e){
             e.printStackTrace();
-//            logger.error(e.getMessage(),e);
         }
         return "/testDatabase";
     }
@@ -84,7 +88,8 @@ public class TestController {
      */
     @RequestMapping(value = "/cache")
     public String testCache(Model model) {
-        String value = cacheService.testCache("cacheTest");//缓存了一个key值为cacheTest的对象
+        //缓存了一个key值为cacheTest的对象
+        String value = cacheService.testCache("cacheTest");
         model.addAttribute("cache",value);
         model.addAttribute("title", "缓存测试");
         model.addAttribute("license", "© 2014 AllMobilize, Inc. Licensed under MIT license.");
@@ -101,7 +106,7 @@ public class TestController {
     @RequestMapping(value = "/nositemesh/mybody",produces = "application/json;charset=utf-8")
     @ResponseBody()
     public String getLotteryResultData() {
-        Map<String,Object> param = new HashMap<>();
+        Map<String,Object> param = new HashMap<>(10);
         Page page = new Page(1,200);
         param.put("page",page);
         List<LotteryResult> list = lotteryResultMapper.getAllLotteryResultByPaging(param);

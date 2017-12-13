@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Ben on 2017/12/9.
+ * @author ben
+ * @date 2017/12/9
  */
 @Aspect
 @Component
@@ -20,14 +22,21 @@ public class Audience {
     private HttpServletRequest request;
     @Getter
     private Model model;
-    //此处的该方法并没任何含义，只是为了引入切入点而已
+    /**
+     * 此处的该方法并没任何含义，只是为了引入切入点而已
+     * @param model 用于页面显示相关数据
+     * @param request  请求对象
+     *
+     * */
+
     @Pointcut("execution(* com.ben.hello.web.TestController.testDatabase(org.springframework.ui.Model,javax.servlet.http.HttpServletRequest)) && args(model,request)")
     public void testDatabase(Model model, HttpServletRequest request){
 
     }
     @Before("testDatabase(model,request)")
     public void takeSeates(Model model, HttpServletRequest request){
-        System.out.println(request);//可以将request封装一下
+        //可以将request封装一下
+        System.out.println(request);
         logger.debug("观众们正在就位");
     }
     @Before("testDatabase(model,request)")

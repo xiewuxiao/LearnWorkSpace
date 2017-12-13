@@ -15,6 +15,8 @@ import java.util.Properties;
 
 /**
  * 数据库操作性能拦截器,记录耗时
+ * @author ben
+ * @date 2017/12/9
  * Created by hasee on 2017/12/4.
  */
 @Intercepts(value = {

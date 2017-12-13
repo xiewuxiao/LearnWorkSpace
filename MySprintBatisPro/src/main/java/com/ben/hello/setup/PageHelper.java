@@ -21,6 +21,9 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
+ * mybatis分页拦截器
+ * @author ben
+ * @date 2017/12/9
  * Created by hasee on 2017/12/4.
  */
 @Intercepts({@Signature(
@@ -67,9 +70,7 @@ public class PageHelper implements Interceptor {
             try {
                 result = field.get(obj);
             } catch (IllegalArgumentException e) {
-//                e.printStackTrace();
             } catch (IllegalAccessException e) {
-//                e.printStackTrace();
             }
         }
         return result;
@@ -82,7 +83,6 @@ public class PageHelper implements Interceptor {
                 field = clazz.getDeclaredField(fieldName);
                 break;
             } catch (NoSuchFieldException e) {
-//                e.printStackTrace();
             }
         }
         return field;
@@ -135,7 +135,8 @@ public class PageHelper implements Interceptor {
      * @return
      */
     private String getCountSql(String sql) {
-        int index = sql.indexOf("from");//这里其实最好把那些order by 的去掉,这样效率会更快
+        //todo 这里其实最好把那些order by 的去掉,这样效率会更快
+        int index = sql.indexOf("from");
         return "select count(*) " + sql.substring(index);
     }
 
@@ -158,6 +159,7 @@ public class PageHelper implements Interceptor {
      * @param o
      * @return
      */
+    @Override
     public Object plugin(Object o) {
         if (o instanceof  StatementHandler) {
             return Plugin.wrap(o, this);

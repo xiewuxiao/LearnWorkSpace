@@ -16,6 +16,8 @@ import java.util.Map;
 
 /**
  * Created by hasee on 2017/12/13.
+ * @author ben
+ * @date 2017/12/9
  */
 @Component
 @WebService(serviceName = "ExternalWebService")
@@ -25,7 +27,7 @@ public class ExternalWebService {
     private LotteryResultService lotteryResultService;
     @WebMethod
     public List<LotteryResult> getLotteryResultList(String open_date_s,String open_date_e){
-        Map<String,Object> map = new HashMap();
+        Map<String,Object> map = new HashMap(10);
         Page page = new Page(1,20);
         map.put("page",page);
         map.put("open_date_s",open_date_s);
