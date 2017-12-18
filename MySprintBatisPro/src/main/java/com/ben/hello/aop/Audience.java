@@ -52,5 +52,4 @@ public class Audience {
         logger.debug("由于表演太烂了，所以观众要求退票");
     }
 
-
 }

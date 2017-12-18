@@ -1,9 +1,6 @@
 package com.ben.hello.web;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.ben.hello.dao.BookDAOMapper;
 import com.ben.hello.dao.LotteryResultMapper;
 import com.ben.hello.po.LotteryResult;
 import com.ben.hello.service.CacheService;
@@ -101,7 +98,7 @@ public class TestController {
         model.addAttribute("result", "这是不带有sitemesh的页面");
         model.addAttribute("title", "这是不带有sitemesh的页面");
         model.addAttribute("license", "© 2014 AllMobilize, Inc. Licensed under MIT license.");
-        return "/nositemesh";
+        return "/nositemesh/nositemesh";
     }
     @RequestMapping(value = "/nositemesh/mybody",produces = "application/json;charset=utf-8")
     @ResponseBody()
