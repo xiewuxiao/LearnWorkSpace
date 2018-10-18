@@ -9,7 +9,7 @@
     <name>MySprintBatisPro</name>
     <!--统一配置jar包版本-->
     <properties>
-        <springmvc-version>4.3.0.RELEASE</springmvc-version>
+        <springmvc-version>4.3.14.RELEASE</springmvc-version>
         <!-- log4j2日志文件管理包版本 -->
         <log4j2.version>2.9.1</log4j2.version>
     </properties>
