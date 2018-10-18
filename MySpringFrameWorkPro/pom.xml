@@ -9,9 +9,10 @@
     <packaging>war</packaging>
     <version>2017.11.16</version>
 
-    <properties>
+    <!--<properties>
         <spring.version>4.3.12.RELEASE</spring.version>
     </properties>
+ -->
     <modules>
     </modules>
 
