@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configItems title="elasticsearch">
+	<configItem key="elasticsearch.host"> 
+		<comment>es搜索引擎节点地址和端口号配置，默认localhost:9300</comment>
+		<value>localhost:9300</value>
+		<!--<value>10.10.10.33:9300</value>-->
+		<title>搜索引擎节点配置</title>
+		<displayType>text</displayType>
+		<isReboot>true</isReboot>
+	</configItem>
+	
+</configItems>
+
