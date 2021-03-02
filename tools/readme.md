@@ -1,0 +1,1 @@
+此工程用于将excel文件转成sql文件，需要设置insert模板，通过beetl绑定将值替换。
