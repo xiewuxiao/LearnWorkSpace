@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="license-2.4.6">
+    <CLASSES>
+      <root url="jar://D:/java/elasticsearch/elasticsearch-2.4.6-needuser/plugins/license/license-2.4.6.jar!/" />
+      <root url="jar://D:/java/elasticsearch/elasticsearch-2.4.6-needuser/plugins/license/license-core-2.4.6.jar!/" />
+      <root url="jar://D:/java/elasticsearch/elasticsearch-2.4.6-needuser/plugins/license/license-plugin-api-2.4.6.jar!/" />
+      <root url="jar://D:/java/elasticsearch/elasticsearch-2.4.6-needuser/plugins/shield/automaton-1.11-8.jar!/" />
+      <root url="jar://D:/java/elasticsearch/elasticsearch-2.4.6-needuser/plugins/shield/shield-2.4.6.jar!/" />
+      <root url="jar://D:/java/elasticsearch/elasticsearch-2.4.6-needuser/plugins/shield/unboundid-ldapsdk-2.3.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

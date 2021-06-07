@@ -1,4 +1,4 @@
-package com.ben.tools.readexcel;
+package com.ben.tools;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;

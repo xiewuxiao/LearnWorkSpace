@@ -1,12 +1,10 @@
-package com.ben.tools.readexcel;
+package com.ben.tools;
 
 import com.ben.tools.readexcel.dto.PwpOrg;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.beetl.core.Configuration;
 import org.beetl.core.GroupTemplate;
 import org.beetl.core.Template;
@@ -15,12 +13,8 @@ import org.beetl.core.resource.ClasspathResourceLoader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.Executors;
 
 public class Excel2Sql {
 
@@ -49,6 +43,7 @@ public class Excel2Sql {
         }
         fileWriter.flush();
         fileWriter.close();
+        System.out.println("运行结束");
     }
 
 }
