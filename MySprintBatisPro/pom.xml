@@ -11,7 +11,7 @@
     <properties>
         <!-- <springmvc-version>4.3.14.RELEASE</springmvc-version>  -->
         <!-- log4j2日志文件管理包版本 -->
-        <log4j2.version>2.15.0</log4j2.version>
+        <log4j2.version>2.16.0</log4j2.version>
     </properties>
     <!--项目所需jar包-->
     <dependencies>
